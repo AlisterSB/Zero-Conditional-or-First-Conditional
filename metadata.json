@@ -1,0 +1,6 @@
+{
+  "name": "Conditionals Lab: A2 English Master",
+  "description": "Interactive grammar lab for A2 learners to practice Zero and First Conditionals in educational scenarios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

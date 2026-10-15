@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .speech-bubble-tail {
+    position: relative;
+  }
+  .speech-bubble-tail::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 24px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+  }
+  @media (max-width: 768px) {
+    .speech-bubble-tail::before {
+      left: 32px;
+      top: -10px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #ffffff;
+      border-top: 0;
+    }
+  }
+
+  /* Tactile pressable 3D buttons (Duolingo / playful pastel feel) */
+  .btn-pressable {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-pressable:hover {
+    transform: translateY(-2px);
+  }
+  .btn-pressable:active {
+    transform: translateY(2px);
+  }
+
+  /* 3D button effect with colored bottom borders */
+  .btn-3d-pink {
+    border-bottom: 4px solid #db2777;
+  }
+  .btn-3d-pink:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px);
+  }
+
+  .btn-3d-emerald {
+    border-bottom: 4px solid #059669;
+  }
+  .btn-3d-emerald:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px);
+  }
+
+  .btn-3d-sky {
+    border-bottom: 4px solid #0284c7;
+  }
+  .btn-3d-sky:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px);
+  }
+
+  .btn-3d-purple {
+    border-bottom: 4px solid #7c3aed;
+  }
+  .btn-3d-purple:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px);
+  }
+
+  .btn-3d-amber {
+    border-bottom: 4px solid #d97706;
+  }
+  .btn-3d-amber:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px);
+  }
+
+  /* Pastel mesh background helper */
+  .bg-pastel-mesh {
+    background-color: #faf5ff;
+    background-image: 
+      radial-gradient(at 10% 15%, rgba(253, 226, 228, 0.7) 0px, transparent 50%),
+      radial-gradient(at 90% 10%, rgba(224, 242, 254, 0.8) 0px, transparent 50%),
+      radial-gradient(at 85% 85%, rgba(243, 232, 255, 0.8) 0px, transparent 50%),
+      radial-gradient(at 15% 85%, rgba(209, 250, 229, 0.7) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(254, 243, 199, 0.5) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes candy-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: candy-shimmer 3s infinite linear;
+}
