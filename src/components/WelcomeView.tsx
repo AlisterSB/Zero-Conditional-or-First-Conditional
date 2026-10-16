@@ -4,6 +4,7 @@ import { speakSentence } from '../utils/audio';
 
 import zeroArtImg from '../assets/images/zero_conditional_art_1792065537244.jpg';
 import firstArtImg from '../assets/images/first_conditional_art_1792065538112.jpg';
+import masterBuilderArtImg from '../assets/images/master_builder_art_1792122239387.jpg';
 import jeanThinkingImg from '../assets/images/jean_thinking_sticker_1792065539148.jpg';
 import jeanCelebrationImg from '../assets/images/jean_celebration_sticker_1792065538171.jpg';
 
@@ -35,9 +36,23 @@ export const WelcomeView: React.FC<WelcomeViewProps> = ({
             <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight mb-2.5">
               Mastering English Conditionals in School Life
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-3">
               Conditionals connect causes and effects. Together with <strong className="text-pink-600 font-black">Jean</strong>, you will master school rules (Zero Conditional) and future predictions (First Conditional) through friendly, bite-sized practice!
             </p>
+
+            {/* 3 Activities Path pill indicator */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="text-[11px] font-black uppercase tracking-wider text-slate-500">Learning Path:</span>
+              <span className="text-[11px] font-bold bg-pink-100 text-pink-800 px-2.5 py-1 rounded-xl border border-pink-200">
+                1. Classification
+              </span>
+              <span className="text-[11px] font-bold bg-sky-100 text-sky-800 px-2.5 py-1 rounded-xl border border-sky-200">
+                2. Verb Conjugation
+              </span>
+              <span className="text-[11px] font-bold bg-teal-100 text-teal-800 px-2.5 py-1 rounded-xl border border-teal-200">
+                3. Sentence Architect
+              </span>
+            </div>
           </div>
 
           {/* Quick Hero Graphic Badge */}
@@ -55,7 +70,7 @@ export const WelcomeView: React.FC<WelcomeViewProps> = ({
               <p className="text-xs font-bold text-slate-700">Ready to unlock conditionals?</p>
               <div className="flex items-center gap-1 mt-1 text-[11px] font-extrabold text-purple-700 bg-white/80 px-2 py-0.5 rounded-lg border border-purple-200">
                 <Zap className="w-3 h-3 text-amber-500 fill-amber-500" />
-                <span>2 Practice Modes</span>
+                <span>3 Practice Activities</span>
               </div>
             </div>
           </div>

@@ -260,3 +260,108 @@ export const BLANK_CHALLENGES: BlankChallenge[] = [
     explanation: 'First Conditional: If + Present Simple (practices), WILL + Verb (will improve) for future progress.',
   },
 ];
+
+export interface SentenceBuildChallenge {
+  id: string;
+  title: string;
+  type: 'zero' | 'first';
+  contextTag: string;
+  scenario: string;
+  tokens: string[];
+  distractorTokens: string[];
+  fullSentence: string;
+  conditionClause: string;
+  resultClause: string;
+  hint: string;
+  explanation: string;
+}
+
+// 6 completely new educational scenarios for Part 3 (Sentence Builder / Architecture)
+// Alternating Zero and First conditionals to stimulate analytical comparison
+export const BUILD_CHALLENGES: SentenceBuildChallenge[] = [
+  {
+    id: 'sb1',
+    title: 'Concert Ticket Rush',
+    type: 'first',
+    contextTag: 'Campus Music Fest',
+    scenario: 'Students wanting to secure prime front-row seats for the campus band',
+    tokens: ['If we buy', 'the tickets now,', 'we will get', 'the best seats.'],
+    distractorTokens: ['will buy', 'got'],
+    fullSentence: 'If we buy the tickets now, we will get the best seats.',
+    conditionClause: 'If we buy the tickets now',
+    resultClause: 'we will get the best seats',
+    hint: "First Conditional: The 'If' condition requires Present Simple ('buy'). The future prediction needs 'will get'. Never put 'will' inside the 'if' clause!",
+    explanation: "First Conditional: Condition with 'buy' (present) leads to predicted future advantage 'will get'. Notice 'will buy' is incorrect inside the If-clause!",
+  },
+  {
+    id: 'sb2',
+    title: 'Biology Lab Microscope',
+    type: 'zero',
+    contextTag: 'Science Protocol',
+    scenario: 'Standard optics rule when adjusting the focus knob in biology lab',
+    tokens: ['If you turn', 'the focus wheel,', 'the specimen', 'becomes clear.'],
+    distractorTokens: ['will become'],
+    fullSentence: 'If you turn the focus wheel, the specimen becomes clear.',
+    conditionClause: 'If you turn the focus wheel',
+    resultClause: 'the specimen becomes clear',
+    hint: "Zero Conditional: This is a permanent scientific fact of optics. Both verbs must use Present Simple ('turn' → 'becomes'). Do not use 'will'!",
+    explanation: "Zero Conditional: Universal scientific principle. 'turn' (present) and 'becomes' (3rd person singular present). No 'will' needed for absolute facts!",
+  },
+  {
+    id: 'sb3',
+    title: 'Afternoon Football Match',
+    type: 'first',
+    contextTag: 'Sports Decision',
+    scenario: 'Coach announcing potential plans depending on afternoon rain',
+    tokens: ['If it rains', 'heavily today,', 'the coach', 'will postpone the game.'],
+    distractorTokens: ['postpones'],
+    fullSentence: 'If it rains heavily today, the coach will postpone the game.',
+    conditionClause: 'If it rains heavily today',
+    resultClause: 'the coach will postpone the game',
+    hint: "First Conditional: 'today' specifies a possible future event. The main clause requires 'will postpone' for the coach's decision.",
+    explanation: "First Conditional: 'rains' sets the realistic condition for today; 'will postpone' announces the predicted future consequence.",
+  },
+  {
+    id: 'sb4',
+    title: 'Cafeteria Eco-Station',
+    type: 'zero',
+    contextTag: 'Campus Green Rule',
+    scenario: 'Daily campus policy for sorting recyclable beverage bottles',
+    tokens: ['If students sort', 'the plastic bottles,', 'the school', 'recycles them.'],
+    distractorTokens: ['will recycle'],
+    fullSentence: 'If students sort the plastic bottles, the school recycles them.',
+    conditionClause: 'If students sort the plastic bottles',
+    resultClause: 'the school recycles them',
+    hint: "Zero Conditional: This expresses a regular institutional routine and general rule. Both clauses are in Present Simple ('sort' and 'recycles').",
+    explanation: "Zero Conditional: Routine environmental policy. 'sort' (present plural) + 'recycles' (present singular).",
+  },
+  {
+    id: 'sb5',
+    title: 'Drama Club Auditions',
+    type: 'first',
+    contextTag: 'Audition Rehearsal',
+    scenario: 'Lucas preparing his script lines tonight before tomorrow’s audition',
+    tokens: ['If Lucas memorizes', 'his lines tonight,', 'he will impress', 'the director.'],
+    distractorTokens: ['impresses', 'will memorize'],
+    fullSentence: 'If Lucas memorizes his lines tonight, he will impress the director.',
+    conditionClause: 'If Lucas memorizes his lines tonight',
+    resultClause: 'he will impress the director',
+    hint: "First Conditional: Condition with 'tonight' takes Present Simple ('memorizes'). The future prediction takes 'will impress'.",
+    explanation: "First Conditional: Real possibility tonight ('memorizes') leading to a future outcome ('will impress').",
+  },
+  {
+    id: 'sb6',
+    title: 'Language Lab Headphones',
+    type: 'zero',
+    contextTag: 'Tech Equipment Fact',
+    scenario: 'Automatic audio jack behavior when connecting student headsets',
+    tokens: ['If you plug in', 'the headphones,', 'the audio', 'switches to private.'],
+    distractorTokens: ['will switch'],
+    fullSentence: 'If you plug in the headphones, the audio switches to private.',
+    conditionClause: 'If you plug in the headphones',
+    resultClause: 'the audio switches to private',
+    hint: "Zero Conditional: Electronic devices trigger automatic responses every time. Use Present Simple without modal auxiliaries.",
+    explanation: "Zero Conditional: Constant technical cause-and-effect. 'plug in' (present) and 'switches' (present).",
+  },
+];
+

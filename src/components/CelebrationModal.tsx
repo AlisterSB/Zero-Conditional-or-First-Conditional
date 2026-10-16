@@ -16,6 +16,7 @@ import { playFanfareSound } from '../utils/audio';
 import jeanCelebrationImg from '../assets/images/jean_celebration_sticker_1792065538171.jpg';
 import zeroArtImg from '../assets/images/zero_conditional_art_1792065537244.jpg';
 import firstArtImg from '../assets/images/first_conditional_art_1792065538112.jpg';
+import masterBuilderArtImg from '../assets/images/master_builder_art_1792122239387.jpg';
 
 interface CelebrationModalProps {
   score: number;
@@ -133,7 +134,7 @@ export const CelebrationModal: React.FC<CelebrationModalProps> = ({
             </div>
 
             {/* Visual mastery stickers summary */}
-            <div className="pt-3 border-t border-purple-100 flex items-center justify-center gap-4">
+            <div className="pt-3 border-t border-purple-100 flex flex-wrap items-center justify-center gap-3">
               <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-2xl border border-emerald-200 shadow-2xs">
                 <img
                   src={zeroArtImg}
@@ -141,7 +142,7 @@ export const CelebrationModal: React.FC<CelebrationModalProps> = ({
                   referrerPolicy="no-referrer"
                   className="w-8 h-8 object-contain rounded-lg"
                 />
-                <span className="text-xs font-black text-emerald-800">Zero Conditional Mastered</span>
+                <span className="text-xs font-black text-emerald-800">Part 1: Rules & Facts</span>
               </div>
               <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-2xl border border-sky-200 shadow-2xs">
                 <img
@@ -150,7 +151,16 @@ export const CelebrationModal: React.FC<CelebrationModalProps> = ({
                   referrerPolicy="no-referrer"
                   className="w-8 h-8 object-contain rounded-lg"
                 />
-                <span className="text-xs font-black text-sky-800">First Conditional Mastered</span>
+                <span className="text-xs font-black text-sky-800">Part 2: Verb Conjugation</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-2xl border border-teal-200 shadow-2xs">
+                <img
+                  src={masterBuilderArtImg}
+                  alt="Master Builder sticker"
+                  referrerPolicy="no-referrer"
+                  className="w-8 h-8 object-contain rounded-lg"
+                />
+                <span className="text-xs font-black text-teal-800">Part 3: Sentence Architect</span>
               </div>
             </div>
           </div>

@@ -9,13 +9,14 @@ import { TeacherAvatar, AvatarMood } from './components/TeacherAvatar';
 import { WelcomeView } from './components/WelcomeView';
 import { ClassificationGame } from './components/ClassificationGame';
 import { FillBlanksGame } from './components/FillBlanksGame';
+import { SentenceBuilderGame } from './components/SentenceBuilderGame';
 import { CelebrationModal } from './components/CelebrationModal';
 import { ReferenceModal } from './components/ReferenceModal';
 import { VoiceSettingsModal } from './components/VoiceSettingsModal';
-import { CLASSIFICATION_SENTENCES, BLANK_CHALLENGES } from './data/sentences';
+import { CLASSIFICATION_SENTENCES, BLANK_CHALLENGES, BUILD_CHALLENGES } from './data/sentences';
 import { Sparkles, Heart } from 'lucide-react';
 
-type AppPhase = 'welcome' | 'part1' | 'part2' | 'celebration';
+type AppPhase = 'welcome' | 'part1' | 'part2' | 'part3' | 'celebration';
 
 export default function App() {
   const [phase, setPhase] = useState<AppPhase>('welcome');
@@ -36,13 +37,14 @@ export default function App() {
   const [avatarMood, setAvatarMood] = useState<AvatarMood>('teaching');
   const [pointsNotification, setPointsNotification] = useState<number | null>(null);
 
-  // Total practice challenge steps: 10 in Part 1 + 6 in Part 2 = 16
-  const totalPracticeSteps = CLASSIFICATION_SENTENCES.length + BLANK_CHALLENGES.length;
+  // Total practice challenge steps: 10 in Part 1 + 6 in Part 2 + 6 in Part 3 = 22
+  const totalPracticeSteps = CLASSIFICATION_SENTENCES.length + BLANK_CHALLENGES.length + BUILD_CHALLENGES.length;
 
   const getCurrentStepIndex = () => {
     if (phase === 'welcome') return 0;
     if (phase === 'part1') return 2;
     if (phase === 'part2') return CLASSIFICATION_SENTENCES.length + 2;
+    if (phase === 'part3') return CLASSIFICATION_SENTENCES.length + BLANK_CHALLENGES.length + 2;
     return totalPracticeSteps;
   };
 
@@ -53,7 +55,9 @@ export default function App() {
       case 'part1':
         return 'Part 1: Rules vs Predictions';
       case 'part2':
-        return 'Part 2: Sentence Construction';
+        return 'Part 2: Verb Conjugation';
+      case 'part3':
+        return 'Part 3: Sentence Architect';
       case 'celebration':
         return 'Final Assessment & Awards';
       default:
@@ -117,12 +121,23 @@ export default function App() {
   };
 
   const handleCompletePart2 = () => {
-    setPhase('celebration');
+    setPhase('part3');
     setAvatarMessage(
-      "Outstanding achievement! You've successfully conquered both Zero and First Conditionals in educational scenarios!"
+      "Terrific work on Part 2! Now get ready for the grand finale: Part 3: Sentence Architect! Assemble complete conditional sentences from word tiles and watch out for distractor words!"
     );
     setAvatarSubtext(
-      "Review your performance score and badge below. Feel free to replay anytime!"
+      "Arrange the word tiles in proper order, test audio pronunciation, and earn bonus mastery points!"
+    );
+    setAvatarMood('celebrating');
+  };
+
+  const handleCompletePart3 = () => {
+    setPhase('celebration');
+    setAvatarMessage(
+      "Outstanding achievement! You've successfully conquered all three activities of the Conditionals Lab!"
+    );
+    setAvatarSubtext(
+      "Review your performance score, accuracy, and mastery badges below. Feel free to replay anytime!"
     );
     setAvatarMood('celebrating');
   };
@@ -199,6 +214,15 @@ export default function App() {
               isMuted={isMuted}
             />
           )}
+
+          {phase === 'part3' && (
+            <SentenceBuilderGame
+              onScoreUpdate={handleScoreUpdate}
+              onAvatarFeedback={handleAvatarFeedback}
+              onCompletePart3={handleCompletePart3}
+              isMuted={isMuted}
+            />
+          )}
         </section>
       </main>
 
@@ -218,7 +242,7 @@ export default function App() {
       {phase === 'celebration' && (
         <CelebrationModal
           score={score}
-          maxScore={totalPracticeSteps * 10}
+          maxScore={10 * 10 + 6 * 10 + 6 * 15}
           highestStreak={highestStreak}
           isMuted={isMuted}
           onPlayAgain={handlePlayAgain}

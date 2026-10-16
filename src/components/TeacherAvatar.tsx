@@ -6,7 +6,7 @@ import jeanAvatarImg from '../assets/images/regenerated_image_1792061190507.png'
 import jeanCelebrationImg from '../assets/images/jean_celebration_sticker_1792065538171.jpg';
 import jeanThinkingImg from '../assets/images/jean_thinking_sticker_1792065539148.jpg';
 
-export type AvatarMood = 'neutral' | 'correct' | 'incorrect' | 'teaching' | 'celebrating';
+export type AvatarMood = 'neutral' | 'correct' | 'incorrect' | 'teaching' | 'celebrating' | 'thinking' | 'encouraging';
 
 interface TeacherAvatarProps {
   message: string;
@@ -52,6 +52,22 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
           badge: 'bg-pink-100 text-pink-800 border-pink-200',
           accent: 'text-pink-700',
           icon: <Sparkles className="w-4 h-4 text-pink-500" />,
+        };
+      case 'thinking':
+        return {
+          border: 'border-amber-300',
+          bg: 'bg-linear-to-br from-amber-50/80 via-yellow-50/40 to-white',
+          badge: 'bg-amber-100 text-amber-900 border-amber-200',
+          accent: 'text-amber-800',
+          icon: <Lightbulb className="w-4 h-4 text-amber-600" />,
+        };
+      case 'encouraging':
+        return {
+          border: 'border-teal-300',
+          bg: 'bg-linear-to-br from-teal-50/80 via-sky-50/40 to-white',
+          badge: 'bg-teal-100 text-teal-900 border-teal-200',
+          accent: 'text-teal-800',
+          icon: <Heart className="w-4 h-4 text-teal-600" />,
         };
       case 'teaching':
         return {
@@ -156,8 +172,8 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
               </div>
             )}
 
-            {mood === 'teaching' && (
-              <div className="absolute -top-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white p-0.5 shadow-lg border-2 border-sky-300 animate-pulse z-20 overflow-hidden">
+            {(mood === 'teaching' || mood === 'thinking') && (
+              <div className="absolute -top-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white p-0.5 shadow-lg border-2 border-amber-300 animate-pulse z-20 overflow-hidden">
                 <img
                   src={jeanThinkingImg}
                   alt="Thinking clue sticker"
